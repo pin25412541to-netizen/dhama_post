@@ -1,0 +1,10 @@
+<div class="p-10">
+  <div class="grid grid-cols-3 gap-4">
+    @for (post of posts(); track post.imgSrc) {
+    <div class="bg-write shadow-md rounded-md p-2 overflow-hidden h-100 flex flex-col">
+      <img class="h-60 flex-none object-contain mb-2" [src]="post.imgSrc" alt="">
+      <div class="flex justify-center flex-1"><pre class="px-2 flex items-center">{{ post.message }}</pre></div>
+    </div>
+    }
+  </div>
+</div>
