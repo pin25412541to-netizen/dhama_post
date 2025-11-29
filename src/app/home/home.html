@@ -1,4 +1,8 @@
-<div class="md:p-10 p-0">
+<div class="sm:p-5 p-0 flex flex-col">
+  <div class="flex mx-2 sm:mt-0 mb-0 sm:mb-4 mt-4 border-b border-gray-300">
+    <img class="w-10 sm:w-25 mr-1.5" src="img/logo.png" />
+    <p class="font-bold text-md sm:text-2xl flex items-center pt-2 sm:pt-7">{{ title }}</p>
+  </div>
   <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-4">
     @for (post of posts(); track post.imgSrc) {
     <div
