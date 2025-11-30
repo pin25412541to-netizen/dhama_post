@@ -8,10 +8,11 @@
     <div
       class="bg-white shadow-md pt-2 mt-2 h-auto flex flex-col md:mt-0 mb-0.5"
     >
-      <div class="px-2 mb-2 flex flex-1">
-        <p class="text-gray-900 text-sm leading-relaxed whitespace-pre-wrap">{{ post.message }}</p>
-      </div>
+      <p class="pl-2 text-blue-900 font-bold text-sm">{{post.title}}</p>
       <img class="h:100 flex-none object-contain mt-2" [src]="post.imgSrc" alt="" />
+      <div class="px-2 my-2 flex flex-1">
+        <p class="text-gray-900 italic text-sm leading-relaxed whitespace-pre-wrap">" {{ post.message }} "</p>
+      </div>
     </div>
     }
   </div>
