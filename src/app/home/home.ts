@@ -11,5 +11,5 @@ import { PostService } from '../../services/post/postService';
 export class Home {
   postService = inject(PostService);
   posts = signal<Post[]>(this.postService.getAllPosts());
-  title =  "ใจเป็นธรรม"
+  title =  "อกาลิโก ธรรมะทันสมัยอยู่เสมอ..."
 }
