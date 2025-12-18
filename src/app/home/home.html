@@ -10,7 +10,7 @@
       @for (m of menu; track m.name) {
       <button
         (click)="menuActive.set(m.name)"
-        class=""
+        class="cursor-pointer"
         [class]="
           menuActive() == m.name
             ? 'rounded-md px-2 py-0.5 bg-yellow-600 border-white text-white'

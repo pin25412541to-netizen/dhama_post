@@ -20,7 +20,7 @@ export class Home {
 
   posts = signal<Post[]>(this.postService.getAllPosts());
   readingPost = signal<ReadingPost[]>(this.readingPostService.getAllPosts());
-  title = "อกาลิโก ธรรมะทันสมัยอยู่เสมอ"
+  title = "บันทึกธรรม"
   menu: Menu[] = [
     {
       name: "ธรรมะสั้นๆ",
