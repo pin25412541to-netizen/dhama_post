@@ -46,6 +46,7 @@
         </p>
       </div>
       <button
+        (click)="clickReadPost($index)"
         class="bg-blue-500 font-bold text-white rounded-md px-2 p-1.5 flex self-end justify-center mr-4 hover:bg-blue-800"
       >
         อ่านเนื้อหา
@@ -54,3 +55,28 @@
     } }
   </div>
 </div>
+@if (isModalOpen()){
+<div class="fixed top-0 left-0 right-0 bottom-0 z-50  px-4 pt-2 flex flex-col gap-1 bg-gray-900 bg-opacity-50">
+    <button (click)="closeModal()">
+      <svg
+        class="w-[35px] h-[35px] text-gray-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 12h14M5 12l4-4m-4 4 4 4"
+        />
+      </svg>
+    </button>
+  <p class="font-bold text-xl mt-4 text-white">{{ readPostActive().title }}</p>
+  <p class="text-white mt-2 text-md">{{ readPostActive().message }}</p>
+</div>
+}

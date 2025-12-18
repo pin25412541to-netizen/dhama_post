@@ -32,5 +32,16 @@ export class Home {
     }
   ]
   menuActive = signal<string>(this.menu[0].name)
+  isModalOpen = signal(false)
+  readPostActive = signal<ReadingPost>(this.readingPost()[0])
+
+  closeModal = ()=>{
+    this.isModalOpen.set(false)
+  }
+
+  clickReadPost = (index: number)=>{
+    this.readPostActive.set(this.readingPost()[index])
+    this.isModalOpen.set(true)
+  }
   
 }
