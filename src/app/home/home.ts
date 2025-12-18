@@ -2,6 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { Post } from '../../model/post';
 import { PostService } from '../../services/post/postService';
 
+interface Menu {
+  name: string
+  link: string
+}
+
 @Component({
   selector: 'app-home',
   imports: [],
@@ -11,5 +16,17 @@ import { PostService } from '../../services/post/postService';
 export class Home {
   postService = inject(PostService);
   posts = signal<Post[]>(this.postService.getAllPosts());
-  title =  "อกาลิโก ธรรมะทันสมัยอยู่เสมอ"
+  title = "อกาลิโก ธรรมะทันสมัยอยู่เสมอ"
+  menu: Menu[] = [
+    {
+      name: "ธรรมะสั้นๆ",
+      link: "",
+    },
+    {
+      name: "ธรรมะบรรยาย",
+      link: ""
+    }
+  ]
+  menuActive = signal<string>(this.menu[0].name)
+  
 }
