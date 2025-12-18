@@ -26,11 +26,11 @@
     class="overflow-y-auto bg-black sm:bg-transparent grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-4 mt-2"
   >
     @if (menuActive() == menu[0].name) { @for (post of posts(); track post.message) {
-    <div class="bg-black shadow-md h-auto flex flex-col md:mt-0 mb-0.5">
+    <div class="bg-black shadow-md h-auto flex flex-col md:mt-0 mb-0.5 first:mt-0 mt-2">
       <p class="pl-2 text-white font-bold text-md">{{ post.title }}</p>
       <div class="px-2 my-2 flex flex-1">
         <p class="text-gray-400 text-md leading-relaxed whitespace-pre-wrap">
-          " {{ post.message }} "
+          {{ post.message }}
         </p>
       </div>
       <img class="h:100 flex-none object-contain mt-2" [src]="post.imgSrc" alt="" />
@@ -77,6 +77,6 @@
       </svg>
     </button>
   <p class="font-bold text-xl mt-4 text-white">{{ readPostActive().title }}</p>
-  <p class="text-white mt-2 text-md">{{ readPostActive().message }}</p>
+  <p class="text-white mt-2 text-md leading-relaxed whitespace-pre-wrap">{{ readPostActive().message }}</p>
 </div>
 }
