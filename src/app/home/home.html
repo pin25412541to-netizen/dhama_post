@@ -2,23 +2,55 @@
   <div class="flex flex-col">
     <div class="flex mx-2 sm:mt-0 mb-0 sm:mb-4 mt-1.5">
       <img class="w-10 sm:w-25 mr-1.5" src="img/logo.png" />
-      <p class="text-yellow-500 font-bold text-xl sm:text-2xl flex items-center pt-2 sm:pt-7">{{ title }}</p>
+      <p class="text-yellow-500 font-bold text-xl sm:text-2xl flex items-center pt-2 sm:pt-7">
+        {{ title }}
+      </p>
     </div>
     <div class="flex gap-2 px-2 pt-2">
       @for (m of menu; track m.name) {
-        <button class="" [class]="menuActive() == m.name? 'rounded-md px-2 py-0.5 bg-yellow-600 border-white text-white':'text-white font-bold'">{{m.name}}</button>
+      <button
+        (click)="menuActive.set(m.name)"
+        class=""
+        [class]="
+          menuActive() == m.name
+            ? 'rounded-md px-2 py-0.5 bg-yellow-600 border-white text-white'
+            : 'text-white font-bold'
+        "
+      >
+        {{ m.name }}
+      </button>
       }
     </div>
   </div>
-  <div class="overflow-y-auto bg-black sm:bg-transparent grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-4 mt-2">
-    @for (post of posts(); track post.imgSrc) {
+  <div
+    class="overflow-y-auto bg-black sm:bg-transparent grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-4 mt-2"
+  >
+    @if (menuActive() == menu[0].name) { @for (post of posts(); track post.message) {
     <div class="bg-black shadow-md pt-2 mt-2 h-auto flex flex-col md:mt-0 mb-0.5">
-      <p class="pl-2 mt-2 text-white font-bold text-md">{{post.title}}</p>
+      <p class="pl-2 mt-2 text-white font-bold text-md">{{ post.title }}</p>
       <div class="px-2 my-2 flex flex-1">
-        <p class="text-gray-400 text-md leading-relaxed whitespace-pre-wrap">" {{ post.message }} "</p>
+        <p class="text-gray-400 text-md leading-relaxed whitespace-pre-wrap">
+          " {{ post.message }} "
+        </p>
       </div>
       <img class="h:100 flex-none object-contain mt-2" [src]="post.imgSrc" alt="" />
     </div>
-    }
+    } } @else { @for (post of readingPost(); track post.message) {
+    <div
+      class="bg-cyan-950 shadow-md p-2 mt-2 h-auto flex flex-col md:mt-0 mb-0.5 border-2 border-gray-700 rounded-xl mx-4"
+    >
+      <p class="pl-2 mt-2 text-yellow-500 font-bold text-md">{{ post.title }}</p>
+      <div class="px-2 my-2 flex flex-1">
+        <p class="text-gray-200 text-md leading-relaxed whitespace-pre-wrap line-clamp-3">
+          {{ post.message }}
+        </p>
+      </div>
+      <button
+        class="bg-blue-500 font-bold text-white rounded-md px-2 p-1.5 flex self-end justify-center mr-4 hover:bg-blue-800"
+      >
+        อ่านเนื้อหา
+      </button>
+    </div>
+    } }
   </div>
 </div>

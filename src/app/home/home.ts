@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
-import { Post } from '../../model/post';
+import { Post, ReadingPost } from '../../model/post';
 import { PostService } from '../../services/post/postService';
+import { ReadingPostService } from '../../services/readingPost/reading-post';
 
 interface Menu {
   name: string
@@ -15,7 +16,10 @@ interface Menu {
 })
 export class Home {
   postService = inject(PostService);
+  readingPostService = inject(ReadingPostService);
+
   posts = signal<Post[]>(this.postService.getAllPosts());
+  readingPost = signal<ReadingPost[]>(this.readingPostService.getAllPosts());
   title = "อกาลิโก ธรรมะทันสมัยอยู่เสมอ"
   menu: Menu[] = [
     {
