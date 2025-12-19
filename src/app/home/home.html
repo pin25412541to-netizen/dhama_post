@@ -1,4 +1,4 @@
-<div class="sm:p-5 p-0 flex flex-col h-screen overflow-hidden bg-black">
+<div class="sm:p-5 p-0 flex flex-col h-screen overflow-hidden bg-gray-800">
   <div class="flex flex-col border-b-2 pb-2 border-gray-300">
     <div class="flex mx-2 sm:mt-0 mb-0 sm:mb-4 mt-1.5">
       <img class="w-10 sm:w-25 mr-1.5" src="img/logo.png" />
@@ -23,17 +23,17 @@
     </div>
   </div>
   <div
-    class="overflow-y-auto bg-black sm:bg-transparent grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-4 mt-2"
+    class="overflow-y-auto bg-gray-800 sm:bg-transparent grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-4 my-2"
   >
     @if (menuActive() == menu[0].name) { @for (post of posts(); track post.message) {
-    <div class="bg-black shadow-md h-auto flex flex-col md:mt-0 mb-0.5 first:mt-0 mt-2">
-      <p class="pl-2 text-white font-bold text-md">{{ post.title }}</p>
+    <div
+      class="bg-cyan-950 pt-2 mx-2 shadow-md h-auto flex flex-col md:mt-0 mb-0.5 first:mt-0 mt-2 border-2 border-gray-700 rounded-md"
+    >
+      <p class="px-2 text-yellow-600 font-bold text-md">{{ post.title }}</p>
       <div class="px-2 my-2 flex flex-1">
-        <p class="text-gray-400 text-md leading-relaxed whitespace-pre-wrap">
-          {{ post.message }}
-        </p>
+        <p class="text-gray-200 text-md leading-relaxed whitespace-pre-wrap">{{ post.message }}</p>
       </div>
-      <img class="h:100 flex-none object-contain mt-2" [src]="post.imgSrc" alt="" />
+      <!-- <img class="h:100 flex-none object-contain mt-2" [src]="post.imgSrc" alt="" /> -->
     </div>
     } } @else { @for (post of readingPost(); track post.message) {
     <div
@@ -41,8 +41,7 @@
     >
       <p class="pl-2 mt-2 text-yellow-500 font-bold text-md">{{ post.title }}</p>
       <div class="px-2 my-2 flex flex-1">
-        <p class="text-gray-200 text-md leading-relaxed whitespace-pre-wrap line-clamp-3">
-          {{ post.message }}
+        <p class="text-gray-200 text-md leading-relaxed whitespace-pre-wrap line-clamp-3">{{ post.message }}
         </p>
       </div>
       <button
@@ -56,27 +55,30 @@
   </div>
 </div>
 @if (isModalOpen()){
-<div class="fixed top-0 left-0 right-0 bottom-0 z-50  px-4 pt-2 flex flex-col gap-1 bg-gray-900 bg-opacity-50">
-    <button (click)="closeModal()">
-      <svg
-        class="w-[35px] h-[35px] text-gray-800 dark:text-white"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 12h14M5 12l4-4m-4 4 4 4"
-        />
-      </svg>
-    </button>
+<div
+  class="fixed top-0 left-0 right-0 bottom-0 z-50 px-4 pt-2 flex flex-col gap-1 bg-cyan-950 bg-opacity-50"
+>
+  <button (click)="closeModal()">
+    <svg
+      class="w-[35px] h-[35px] text-gray-800 dark:text-white"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 12h14M5 12l4-4m-4 4 4 4"
+      />
+    </svg>
+  </button>
   <p class="font-bold text-xl mt-4 text-white">{{ readPostActive().title }}</p>
-  <p class="text-white mt-2 text-md leading-relaxed whitespace-pre-wrap">{{ readPostActive().message }}</p>
+  <p class="text-white mt-2 text-md leading-relaxed whitespace-pre-wrap">{{ readPostActive().message }}
+  </p>
 </div>
 }
